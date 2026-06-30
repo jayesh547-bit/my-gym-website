@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #030405;
+  color: white;
+  font-family: Inter, system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: #bef264;
+  color: #030405;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.kling-glow {
+  position: relative;
+}
+
+.kling-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(190, 255, 40, 0.35),
+    rgba(0, 220, 255, 0.18),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: -1;
+}
+
+.kling-glow:hover::before {
+  opacity: 1;
+}
+
+
+@keyframes marqueeRight {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+body {
+  position: relative;
+  background: #030405;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 28%, rgba(190, 255, 40, 0.18), transparent 28%),
+    radial-gradient(circle at 50% 42%, rgba(190, 255, 40, 0.08), transparent 36%),
+    linear-gradient(180deg, #020303 0%, #030405 45%, #020303 100%);
+}
+
+body::after {
+  content: "MY GYM";
+  position: fixed;
+  left: 50%;
+  top: 32%;
+  z-index: -2;
+  pointer-events: none;
+  transform: translate(-50%, -50%) rotate(-2deg);
+  color: rgba(255, 255, 255, 0.12);
+  font-size: clamp(5rem, 17vw, 18rem);
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  white-space: nowrap;
+  text-shadow:
+    0 0 70px rgba(190, 255, 40, 0.28),
+    0 90px 18px rgba(255, 255, 255, 0.035);
+}
+
+#root::before {
+  content: "MY GYM";
+  position: fixed;
+  left: 50%;
+  top: 51%;
+  z-index: -2;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scaleY(-1) rotate(-2deg);
+  color: rgba(255, 255, 255, 0.035);
+  font-size: clamp(5rem, 17vw, 18rem);
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  white-space: nowrap;
+  filter: blur(5px);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), transparent 62%);
+}
+
+#root::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08), transparent 1px) top / 100% 1px no-repeat,
+    linear-gradient(to top, rgba(255, 255, 255, 0.08), transparent 1px) bottom / 100% 1px no-repeat,
+    radial-gradient(circle at 50% 30%, transparent 0%, rgba(0, 0, 0, 0.45) 58%, rgba(0, 0, 0, 0.86) 100%);
+}
