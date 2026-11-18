@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Dumbbell, Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
+import Logo from "./Logo";
 
 const links = [
   ["Programs", "#programs"],
@@ -49,9 +50,7 @@ function Navbar() {
             className="group flex items-center gap-3 transition-opacity hover:opacity-90"
             aria-label="All For One Gym Home"
           >
-            <span className="grid size-10 place-items-center rounded-xl bg-lime-400 text-black shadow-[0_0_20px_rgba(190,242,100,0.35)] transition-transform duration-300 group-hover:scale-105">
-              <Dumbbell size={22} className="stroke-[2.5]" />
-            </span>
+            <Logo size={42} />
             <div className="flex flex-col">
               <span className="text-lg font-black tracking-wider text-white">
                 ALL FOR ONE <span className="text-lime-400">GYM</span>

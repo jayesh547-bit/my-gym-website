@@ -128,6 +128,20 @@ function Hero() {
           </TiltCard>
         </div>
       </div>
+
+      {/* Interactive Animated Scroll Indicator */}
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 hidden sm:block">
+        <a
+          href="#programs"
+          className="group flex flex-col items-center gap-2 text-[10px] font-black uppercase tracking-[0.25em] text-white/50 transition-colors hover:text-lime-400"
+          aria-label="Scroll to Programs section"
+        >
+          <span className="transition-transform group-hover:translate-y-0.5">Scroll Down</span>
+          <div className="flex h-9 w-5 justify-center rounded-full border-2 border-white/30 p-1 transition-colors group-hover:border-lime-400">
+            <div className="h-2 w-1.5 animate-bounce rounded-full bg-lime-400" />
+          </div>
+        </a>
+      </div>
     </section>
   );
 }

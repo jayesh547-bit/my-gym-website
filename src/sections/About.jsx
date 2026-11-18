@@ -37,8 +37,8 @@ function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent" />
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(190,242,100,0.15),transparent_40%)]" />
 
-              {/* Floating Feature Card with 3D Pop */}
-              <div className="glass-card absolute bottom-6 left-6 right-6 rounded-2xl p-6 shadow-2xl sm:bottom-8 sm:left-8 sm:right-8 translate-z-40">
+              {/* Floating Feature Card with 3D Pop & Scroll Parallax */}
+              <div className="glass-card scroll-parallax absolute bottom-6 left-6 right-6 rounded-2xl p-6 shadow-2xl sm:bottom-8 sm:left-8 sm:right-8 translate-z-40">
                 <div className="flex items-center gap-2">
                   <ShieldCheck size={18} className="text-lime-400" />
                   <p className="text-xs font-black uppercase tracking-[0.25em] text-lime-400">

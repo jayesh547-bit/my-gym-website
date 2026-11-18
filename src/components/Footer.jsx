@@ -1,4 +1,5 @@
-import { Dumbbell, MapPin, Phone, ArrowUp } from "lucide-react";
+import { MapPin, Phone, ArrowUp } from "lucide-react";
+import Logo from "./Logo";
 
 function Footer() {
   const scrollToTop = () => {
@@ -12,9 +13,7 @@ function Footer() {
           {/* Brand Col (4 cols) */}
           <div className="lg:col-span-4">
             <a href="#home" className="inline-flex items-center gap-3">
-              <span className="grid size-10 place-items-center rounded-xl bg-lime-400 text-black">
-                <Dumbbell size={22} className="stroke-[2.5]" />
-              </span>
+              <Logo size={42} />
               <span className="text-xl font-black tracking-wider text-white">
                 ALL FOR ONE <span className="text-lime-400">GYM</span>
               </span>

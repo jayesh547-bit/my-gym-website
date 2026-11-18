@@ -12,8 +12,8 @@ function useReveal() {
     }
 
     const ctx = gsap.context(() => {
+      // 1. Reveal items with [data-reveal]
       const revealItems = gsap.utils.toArray("[data-reveal]");
-
       revealItems.forEach((item, index) => {
         gsap.fromTo(
           item,
@@ -37,6 +37,21 @@ function useReveal() {
             },
           }
         );
+      });
+
+      // 2. Parallax floating on elements with .scroll-parallax
+      const parallaxItems = gsap.utils.toArray(".scroll-parallax");
+      parallaxItems.forEach((el) => {
+        gsap.to(el, {
+          y: -40,
+          ease: "none",
+          scrollTrigger: {
+            trigger: el,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1.2,
+          },
+        });
       });
     });
 

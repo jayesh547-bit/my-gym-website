@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ScrollProgress from "../components/ScrollProgress";
 
 import Hero from "../sections/Hero";
 import Marquee from "../sections/Marquee";
@@ -22,6 +23,7 @@ function Home() {
 
   return (
     <div className="relative min-h-screen bg-[#050607] text-white selection:bg-lime-400 selection:text-black">
+      <ScrollProgress />
       <Navbar />
       <main id="main-content">
         <Hero />
