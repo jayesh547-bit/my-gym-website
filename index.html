@@ -1,12 +1,109 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my-gym</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Primary Meta Tags -->
+    <title>All For One Gym | Premium Strength &amp; Fitness Studio</title>
+    <meta name="title" content="All For One Gym | Premium Strength &amp; Fitness Studio" />
+    <meta
+      name="description"
+      content="Transform your body and mind at All For One Gym. Elite strength training, HIIT, boxing, personalized nutrition coaching, and recovery in a state-of-the-art facility. Book your free trial today."
+    />
+    <meta name="keywords" content="gym, fitness studio, personal training, strength lab, HIIT, bodybuilding, fat loss, Jaipur gym, fitness coaching, workout plans" />
+    <meta name="author" content="All For One Gym" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#07090b" />
+    <link rel="canonical" href="https://all-for-one-gym.netlify.app/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://all-for-one-gym.netlify.app/" />
+    <meta property="og:title" content="All For One Gym | Premium Strength &amp; Fitness Studio" />
+    <meta
+      property="og:description"
+      content="Elite strength training, HIIT arena, boxing, and personalized coaching. Join All For One Gym and unlock your strongest version."
+    />
+    <meta property="og:site_name" content="All For One Gym" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://all-for-one-gym.netlify.app/" />
+    <meta name="twitter:title" content="All For One Gym | Premium Strength &amp; Fitness Studio" />
+    <meta
+      name="twitter:description"
+      content="Elite strength training, HIIT arena, boxing, and personalized coaching. Book your trial pass today."
+    />
+
+    <!-- LocalBusiness / ExerciseGym Schema (Structured Data) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ExerciseGym",
+        "name": "All For One Gym",
+        "description": "Premium fitness studio offering strength training, HIIT, boxing, personal coaching, and recovery facilities.",
+        "url": "https://all-for-one-gym.netlify.app/",
+        "telephone": "+91-99999-99999",
+        "priceRange": "₹₹",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Jaipur",
+          "addressRegion": "Rajasthan",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "26.9124",
+          "longitude": "75.7873"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "05:30",
+            "closes": "22:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Sunday"],
+            "opens": "07:00",
+            "closes": "13:00"
+          }
+        ],
+        "amenityFeature": [
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Strength Lab",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "HIIT Arena",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Boxing Room",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Personal Training",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Recovery Zone",
+            "value": true
+          }
+        ]
+      }
+    </script>
   </head>
-  <body>
+  <body class="bg-[#050607] text-white antialiased selection:bg-lime-400 selection:text-black">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

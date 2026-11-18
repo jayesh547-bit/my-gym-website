@@ -1,103 +1,108 @@
-import { CheckCircle2, Users, Target, Clock } from "lucide-react";
-import { motion } from "framer-motion";
+import { CheckCircle2, Users, Target, Clock, Award, ShieldCheck } from "lucide-react";
 import aboutImage from "../assets/images/about.jpg";
+import TiltCard from "../components/TiltCard";
 
-const features = [
-  "Certified trainers for every fitness level",
-  "Personalized workout & nutrition plans",
-  "Premium strength & recovery equipment",
+const keyPillars = [
+  "Certified strength coaches & clinical nutritionists",
+  "Tailored periodized training programs with form audits",
+  "Rogue fitness racks, calibrated plates & recovery suite",
+  "Quarterly InBody 270 body composition scans included",
 ];
 
 const stats = [
-  { icon: Users, value: "2.5K+", label: "Members" },
-  { icon: Target, value: "92%", label: "Success Rate" },
-  { icon: Clock, value: "24/7", label: "Gym Access" },
+  { icon: Users, value: "500+", label: "Active Members" },
+  { icon: Target, value: "94%", label: "Goal Completion" },
+  { icon: Clock, value: "5:30 AM", label: "Open Daily" },
+  { icon: Award, value: "100%", label: "Coached Sessions" },
 ];
 
 function About() {
   return (
-    <section id="about" className="px-5 py-28">
-      <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-2 lg:items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -80 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="relative"
-        >
-          <div className="relative h-[520px] overflow-hidden rounded-[32px] border border-white/10 bg-black">
-            <img
-              src={aboutImage}
-              alt="Premium gym interior"
-              className="h-full w-full object-cover transition duration-700 hover:scale-105"
-            />
+    <section id="about" aria-label="About All For One Gym" className="relative px-5 py-24 md:py-32">
+      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
+        {/* Left Visual Column with 3D Tilt */}
+        <div className="relative">
+          <TiltCard maxTilt={8} scale={1.01}>
+            <div className="relative h-[440px] sm:h-[520px] overflow-hidden rounded-[32px] border border-white/15 bg-black shadow-2xl preserve-3d">
+              <img
+                src={aboutImage}
+                alt="Athletes training at All For One Gym state-of-the-art facility"
+                loading="lazy"
+                decoding="async"
+                width="1066"
+                height="1600"
+                className="h-full w-full object-cover object-center transition duration-700 hover:scale-105"
+              />
+              {/* Gradient Scrim */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(190,242,100,0.15),transparent_40%)]" />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent" />
+              {/* Floating Feature Card with 3D Pop */}
+              <div className="glass-card absolute bottom-6 left-6 right-6 rounded-2xl p-6 shadow-2xl sm:bottom-8 sm:left-8 sm:right-8 translate-z-40">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck size={18} className="text-lime-400" />
+                  <p className="text-xs font-black uppercase tracking-[0.25em] text-lime-400">
+                    Premium Standards
+                  </p>
+                </div>
+                <p className="mt-2 text-xl font-black text-white sm:text-2xl">
+                  Built for serious transformation.
+                </p>
+                <p className="mt-1 text-xs text-white/70">
+                  Clean, spacious, high-energy environment with zero clutter.
+                </p>
+              </div>
+            </div>
+          </TiltCard>
+        </div>
 
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(190,255,40,.18),transparent_35%)]" />
-          </div>
-
-          <div className="absolute bottom-8 left-8 right-8 rounded-2xl border border-white/10 bg-black/60 p-6 backdrop-blur-xl">
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-lime-300">
-              Elite Studio
-            </p>
-
-            <h3 className="mt-3 text-3xl font-black">
-              Built for serious transformation.
-            </h3>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 80 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-        >
-          <p className="mb-4 text-sm font-black uppercase tracking-[0.28em] text-lime-300">
-            About Us
+        {/* Right Editorial Column */}
+        <div>
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-lime-400">
+            About Our Philosophy
           </p>
 
-          <h2 className="text-5xl font-black leading-tight md:text-7xl">
-            More than a gym.
-            <br />
-            A lifestyle.
+          <h2 className="mt-3 text-3xl font-black uppercase tracking-tight text-white sm:text-5xl md:text-6xl">
+            More Than A Gym. <br />
+            <span className="text-lime-400">A Standard Of Living.</span>
           </h2>
 
-          <p className="mt-8 max-w-xl text-lg leading-8 text-white/60">
-            We help people build stronger bodies, healthier habits and
-            unstoppable confidence through premium coaching and science-based
-            training.
+          <p className="mt-6 text-base leading-relaxed text-white/75 sm:text-lg">
+            At All For One Gym, we eliminate the guesswork from fitness. Whether your objective is stripping body fat, adding slabs of lean muscle, or building athletic endurance, our coaching framework is grounded in physiological science and accountable progress tracking.
           </p>
 
-          <div className="mt-10 space-y-5">
-            {features.map((item) => (
-              <div key={item} className="flex items-center gap-3">
-                <CheckCircle2 className="text-lime-300" size={22} />
-                <span className="font-semibold text-white/80">{item}</span>
+          <div className="mt-8 space-y-3.5">
+            {keyPillars.map((item) => (
+              <div key={item} className="flex items-start gap-3">
+                <CheckCircle2 className="mt-0.5 shrink-0 text-lime-400" size={18} />
+                <span className="text-sm font-semibold text-white/85 sm:text-base">
+                  {item}
+                </span>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 grid gap-4 sm:grid-cols-3">
+          {/* Stats Grid with Hover Lift */}
+          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {stats.map((item) => {
               const Icon = item.icon;
-
               return (
                 <div
                   key={item.label}
-                  className="rounded-2xl border border-white/10 bg-white/[0.05] p-5 backdrop-blur-xl"
+                  className="glass-card rounded-2xl p-4 text-center sm:p-5 transition-transform duration-300 hover:-translate-y-1 hover:border-lime-400/40"
                 >
-                  <Icon className="text-lime-300" size={24} />
-
-                  <h3 className="mt-4 text-3xl font-black">{item.value}</h3>
-
-                  <p className="mt-2 text-xs uppercase tracking-widest text-white/45">
+                  <Icon className="mx-auto text-lime-400" size={22} />
+                  <p className="mt-3 text-2xl font-black text-white sm:text-3xl">
+                    {item.value}
+                  </p>
+                  <p className="mt-1 text-[11px] font-bold uppercase tracking-wider text-white/50">
                     {item.label}
                   </p>
                 </div>
               );
             })}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

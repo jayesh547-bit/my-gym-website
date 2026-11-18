@@ -1,19 +1,52 @@
 @import "tailwindcss";
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
   margin: 0;
-  background: #030405;
-  color: white;
-  font-family: Inter, system-ui, sans-serif;
+  background-color: #050607;
+  color: #f3f4f6;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ambient Gym Glow Background (Hardware Accelerated, No Heavy Text Shadows) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 15%, rgba(190, 242, 100, 0.12), transparent 45%),
+    radial-gradient(circle at 80% 60%, rgba(163, 230, 53, 0.05), transparent 40%),
+    radial-gradient(circle at 20% 80%, rgba(34, 197, 94, 0.04), transparent 40%),
+    linear-gradient(180deg, #050607 0%, #07090c 50%, #050607 100%);
+  transform: translateZ(0);
+}
+
+/* Subtle grid overlay for high-tech fitness feel */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(circle at 50% 50%, black 20%, transparent 80%);
 }
 
 a {
@@ -23,11 +56,12 @@ a {
 
 button {
   font-family: inherit;
+  cursor: pointer;
 }
 
 ::selection {
   background: #bef264;
-  color: #030405;
+  color: #050607;
 }
 
 html.lenis,
@@ -35,102 +69,116 @@ html.lenis body {
   height: auto;
 }
 
-.kling-glow {
-  position: relative;
+/* Glassmorphism & Neon Glow Utilities */
+.glass-card {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.kling-glow::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.055);
+  border-color: rgba(190, 242, 100, 0.35);
+  box-shadow: 0 10px 30px -10px rgba(190, 242, 100, 0.12);
+}
+
+.accent-glow {
+  box-shadow: 0 0 35px -5px rgba(190, 242, 100, 0.3);
+}
+
+/* 3D Depth Utilities */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.translate-z-10 {
+  transform: translateZ(10px);
+}
+
+.translate-z-20 {
+  transform: translateZ(20px);
+}
+
+.translate-z-30 {
+  transform: translateZ(30px);
+}
+
+.translate-z-40 {
+  transform: translateZ(40px);
+}
+
+.translate-z-50 {
+  transform: translateZ(50px);
+}
+
+/* 3D Levitation Float Keyframes */
+@keyframes float3D {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@keyframes float3DReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-1deg);
+  }
+}
+
+.animate-float-3d {
+  animation: float3D 6s ease-in-out infinite;
+}
+
+.animate-float-3d-slow {
+  animation: float3DReverse 8s ease-in-out infinite;
+}
+
+/* Shimmer Effect for Accent Buttons */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-btn {
   background: linear-gradient(
-    135deg,
-    rgba(190, 255, 40, 0.35),
-    rgba(0, 220, 255, 0.18),
-    transparent
+    90deg,
+    #bef264 0%,
+    #ecfccb 50%,
+    #bef264 100%
   );
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  z-index: -1;
+  background-size: 200% 100%;
+}
+.shimmer-btn:hover {
+  animation: shimmer 2s infinite linear;
 }
 
-.kling-glow:hover::before {
-  opacity: 1;
-}
-
-
-@keyframes marqueeRight {
-  from {
-    transform: translateX(-50%);
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-
-  to {
-    transform: translateX(0);
-  }
-}
-
-
-body {
-  position: relative;
-  background: #030405;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -3;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 50% 28%, rgba(190, 255, 40, 0.18), transparent 28%),
-    radial-gradient(circle at 50% 42%, rgba(190, 255, 40, 0.08), transparent 36%),
-    linear-gradient(180deg, #020303 0%, #030405 45%, #020303 100%);
-}
-
-body::after {
-  content: "MY GYM";
-  position: fixed;
-  left: 50%;
-  top: 32%;
-  z-index: -2;
-  pointer-events: none;
-  transform: translate(-50%, -50%) rotate(-2deg);
-  color: rgba(255, 255, 255, 0.12);
-  font-size: clamp(5rem, 17vw, 18rem);
-  font-weight: 900;
-  letter-spacing: -0.08em;
-  white-space: nowrap;
-  text-shadow:
-    0 0 70px rgba(190, 255, 40, 0.28),
-    0 90px 18px rgba(255, 255, 255, 0.035);
-}
-
-#root::before {
-  content: "MY GYM";
-  position: fixed;
-  left: 50%;
-  top: 51%;
-  z-index: -2;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scaleY(-1) rotate(-2deg);
-  color: rgba(255, 255, 255, 0.035);
-  font-size: clamp(5rem, 17vw, 18rem);
-  font-weight: 900;
-  letter-spacing: -0.08em;
-  white-space: nowrap;
-  filter: blur(5px);
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), transparent 62%);
-}
-
-#root::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.08), transparent 1px) top / 100% 1px no-repeat,
-    linear-gradient(to top, rgba(255, 255, 255, 0.08), transparent 1px) bottom / 100% 1px no-repeat,
-    radial-gradient(circle at 50% 30%, transparent 0%, rgba(0, 0, 0, 0.45) 58%, rgba(0, 0, 0, 0.86) 100%);
 }

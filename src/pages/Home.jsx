@@ -21,21 +21,23 @@ function Home() {
   useReveal();
 
   return (
-    <main className="relative min-h-screen overflow-hidden text-white">
+    <div className="relative min-h-screen bg-[#050607] text-white selection:bg-lime-400 selection:text-black">
       <Navbar />
-      <Hero />
-      <Marquee />
-      <Programs />
-      <About />
-      <Features />
-      <Trainers />
-      <Gallery />
-      <Pricing />
-      <Testimonials />
-      <CTA />
-      <Contact />
+      <main id="main-content">
+        <Hero />
+        <Marquee />
+        <Programs />
+        <About />
+        <Features />
+        <Trainers />
+        <Gallery />
+        <Pricing />
+        <Testimonials />
+        <CTA />
+        <Contact />
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }
 
